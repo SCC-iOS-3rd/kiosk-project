@@ -39,5 +39,9 @@ class DataManager {
         Menu(category: "MD", menuImage: #imageLiteral(resourceName: "마이버디패브릭코스터"), name: "마이버디패브릭코스터", price: 24000),
         Menu(category: "MD", menuImage: #imageLiteral(resourceName: "제주실리콘스트로"), name: "제주실리콘스트로세트", price: 17000),
     ]}()
+    
+    func extractCategory(category: String) -> [Menu] {
+        return menuList.filter{ $0.category == category }
+    }
 }
 
