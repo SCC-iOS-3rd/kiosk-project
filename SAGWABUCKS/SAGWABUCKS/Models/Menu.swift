@@ -13,5 +13,5 @@ struct Menu {
     let menuImage: UIImage
     let name: String
     let price: Int
-    var acount: Int = 0
+    var acount: Int
 }
