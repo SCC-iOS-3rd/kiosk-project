@@ -25,12 +25,14 @@ class PreviewViewController: UIViewController {
         
         forHereButton.backgroundColor = .white
         forHereButton.setTitleColor(UIColor(red: 0.29, green: 0.56, blue: 0.43, alpha: 1.00), for: .normal)
+        forHereButton.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
         forHereButton.layer.cornerRadius = 5
         forHereButton.layer.borderWidth = 3
         forHereButton.layer.borderColor = UIColor(red: 0.29, green: 0.56, blue: 0.43, alpha: 1.00).cgColor
         
         toGoButton.backgroundColor = .white
         toGoButton.setTitleColor(UIColor(red: 0.29, green: 0.56, blue: 0.43, alpha: 1.00), for: .normal)
+        toGoButton.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
         toGoButton.layer.cornerRadius = 5
         toGoButton.layer.borderWidth = 3
         toGoButton.layer.borderColor = UIColor(red: 0.29, green: 0.56, blue: 0.43, alpha: 1.00).cgColor

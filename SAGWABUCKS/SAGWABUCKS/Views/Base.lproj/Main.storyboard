@@ -56,7 +56,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="7zm-rc-9ra">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="7zm-rc-9ra">
                                 <rect key="frame" x="40" y="762" width="313" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rnz-47-F7f">
@@ -64,8 +64,10 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="ngS-fm-fbY"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="매  장"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="매  장">
+                                            <color key="titleColor" red="0.28627450980392155" green="0.56470588235294117" blue="0.43137254901960786" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="toMainPage:" destination="9Ic-FO-HGT" eventType="touchUpInside" id="hxg-2p-Ocp"/>
                                             <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="3dB-sK-3Sh"/>
@@ -73,8 +75,10 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iaW-ag-dRo">
                                         <rect key="frame" x="171.66666666666663" y="0.0" width="141.33333333333337" height="40"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="포  장"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="포  장">
+                                            <color key="titleColor" red="0.28627450980392155" green="0.56470588235294117" blue="0.43137254901960786" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="toMainPage:" destination="9Ic-FO-HGT" eventType="touchUpInside" id="Ndh-L7-DLD"/>
                                             <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="3XS-sr-rQZ"/>
@@ -118,6 +122,9 @@
                                     <segment title="MD"/>
                                 </segments>
                                 <color key="selectedSegmentTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="categorySelected:" destination="BYZ-38-t0r" eventType="valueChanged" id="S2k-Uv-qhZ"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
