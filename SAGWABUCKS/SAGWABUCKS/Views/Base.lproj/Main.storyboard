@@ -12,7 +12,7 @@
         <!--Loading View Controller-->
         <scene sceneID="Mc5-1l-W5c">
             <objects>
-                <viewController id="ldy-tM-9QM" customClass="LoadingViewController" customModule="SAGWABUCKS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="ldy-tM-9QM" customClass="LoadingViewController" customModule="SAGWABUCKS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hrb-H8-hA5">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,7 +37,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="9Ic-FO-HGT" kind="presentation" identifier="toPreviewVC" modalPresentationStyle="fullScreen" id="NhE-lS-lyg"/>
+                        <segue destination="9Ic-FO-HGT" kind="presentation" identifier="toPreviewVC" modalPresentationStyle="fullScreen" id="nEE-g7-bea"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ykk-US-JUu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

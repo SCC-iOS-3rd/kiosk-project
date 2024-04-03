@@ -12,10 +12,15 @@ class LoadingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        move()
     }
     
-    //DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1)
+    
+    func move() {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+            self.performSegue(withIdentifier: "toPreviewVC", sender: self)
+        }
+    }
     
     
 }
