@@ -40,7 +40,7 @@ class ViewController: UIViewController {
         // logo image
         logoImageView.image = UIImage(named: "SAGWABUCKS logo")
         
-        categoryControl.setBackgroundImage(UIImage(), for: .normal, barMetrics: .default)
+        // categoryControl.backgroundColor = .white // backgroundColor로 대체
         categoryControl.setDividerImage(UIImage(), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
         
         categoryControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.gray], for: .normal)  // 선택되지 않은 카테고리 회색
@@ -104,6 +104,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func setColletion() {
         menuCollection.delegate = self
         menuCollection.dataSource = self
+        menuCollection.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -116,6 +117,10 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         
         cell.setCellConfig(menuDataManager[indexPath.row])
         
+//        if indexPath.row % 2 == 0 {
+//            cell.contentView.backgroundColor = .red
+//        }
+            
         return cell
     }
     
@@ -142,7 +147,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     
     // 셀의 크기를 반환하는 메서드
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = 150
+        let width = collectionView.frame.width / 2 - 15
         let size = CGSize(width: width, height: width)
         
         return size
@@ -151,6 +156,6 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     
     // 행 사이 간격 최소 간격을 반환하는 메서드
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 30
+        return 10
     }
 }
