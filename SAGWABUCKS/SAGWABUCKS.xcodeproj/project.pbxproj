@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D6994C42BBCE3460011BE04 /* ButtonUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6994C32BBCE3460011BE04 /* ButtonUIView.swift */; };
+		8D6994C82BBCE6060011BE04 /* ButtonUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D6994C72BBCE6060011BE04 /* ButtonUIView.xib */; };
 		DE867A342BBA82D700733495 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE867A332BBA82D700733495 /* AppDelegate.swift */; };
 		DE867A362BBA82D700733495 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE867A352BBA82D700733495 /* SceneDelegate.swift */; };
 		DE867A382BBA82D700733495 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE867A372BBA82D700733495 /* ViewController.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D6994C32BBCE3460011BE04 /* ButtonUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonUIView.swift; sourceTree = "<group>"; };
+		8D6994C72BBCE6060011BE04 /* ButtonUIView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonUIView.xib; sourceTree = "<group>"; };
 		DE867A302BBA82D700733495 /* SAGWABUCKS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SAGWABUCKS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE867A332BBA82D700733495 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE867A352BBA82D700733495 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +49,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D6994C02BBCE3020011BE04 /* CancelAndPayButton */ = {
+			isa = PBXGroup;
+			children = (
+				8D6994C32BBCE3460011BE04 /* ButtonUIView.swift */,
+				8D6994C72BBCE6060011BE04 /* ButtonUIView.xib */,
+			);
+			path = CancelAndPayButton;
+			sourceTree = "<group>";
+		};
 		DE867A272BBA82D700733495 = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +79,7 @@
 			children = (
 				DE867A332BBA82D700733495 /* AppDelegate.swift */,
 				DE867A352BBA82D700733495 /* SceneDelegate.swift */,
+				8D6994C02BBCE3020011BE04 /* CancelAndPayButton */,
 				DE867A492BBA830400733495 /* Models */,
 				DE867A482BBA82FB00733495 /* Views */,
 				DE867A472BBA82F400733495 /* Controllers */,
@@ -161,6 +175,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D6994C82BBCE6060011BE04 /* ButtonUIView.xib in Resources */,
 				DE867A3D2BBA82D900733495 /* Assets.xcassets in Resources */,
 				DE867A402BBA82D900733495 /* Base in Resources */,
 				DE867A3B2BBA82D700733495 /* Base in Resources */,
@@ -176,6 +191,7 @@
 			files = (
 				DE867A532BBB1CBE00733495 /* MenuCell.swift in Sources */,
 				DE867A4B2BBAC8AE00733495 /* CollectionVC.swift in Sources */,
+				8D6994C42BBCE3460011BE04 /* ButtonUIView.swift in Sources */,
 				DE867A512BBB1C8B00733495 /* DataManager.swift in Sources */,
 				DE867A382BBA82D700733495 /* ViewController.swift in Sources */,
 				DE867A342BBA82D700733495 /* AppDelegate.swift in Sources */,
