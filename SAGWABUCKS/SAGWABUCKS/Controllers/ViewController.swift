@@ -40,7 +40,7 @@ class ViewController: UIViewController {
         // logo image
         logoImageView.image = UIImage(named: "SAGWABUCKS logo")
         
-        // categoryControl.backgroundColor = .white // backgroundColor로 대체
+        categoryControl.backgroundColor = .clear
         categoryControl.setDividerImage(UIImage(), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
         
         categoryControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.gray], for: .normal)  // 선택되지 않은 카테고리 회색
@@ -57,16 +57,20 @@ class ViewController: UIViewController {
         switch sender.selectedSegmentIndex {
         case 0:
             // 신메뉴 배열 불러와 컬렉션 뷰에 그리기
-            return
+            menuDataManager = Menu.newMenu
+            menuCollection.reloadData()
         case 1:
             // 음료 배열 불러와 컬렉션 뷰에 그리기
-            return
+            menuDataManager = Menu.beverageMenu
+            menuCollection.reloadData()
         case 2:
             // 음식 배열 불러와 컬렉션 뷰에 그리기
-            return
+            menuDataManager = Menu.foodMenu
+            menuCollection.reloadData()
         case 3:
             // 상품 배열 불러와 컬렉션 뷰에 그리기
-            return
+            menuDataManager = Menu.mdMenu
+            menuCollection.reloadData()
         default:
             return
         }
@@ -85,7 +89,7 @@ extension UISegmentedControl{
         let underLineYPosition = self.bounds.size.height - 1.0
         let underlineFrame = CGRect(x: underlineXPosition, y: underLineYPosition, width: underlineWidth, height: underlineHeight)
         let underline = UIView(frame: underlineFrame)
-        underline.backgroundColor = UIColor.green
+        underline.backgroundColor = UIColor(red: 0.29, green: 0.56, blue: 0.43, alpha: 1.00)
         underline.tag = 1
         self.addSubview(underline)
     }
