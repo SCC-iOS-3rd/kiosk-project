@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C42F3D82BBD7B8B007A34D0 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C42F3D72BBD7B8B007A34D0 /* LoadingViewController.swift */; };
 		9C42F3DA2BBD7BAF007A34D0 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C42F3D92BBD7BAF007A34D0 /* PreviewViewController.swift */; };
 		DE867A342BBA82D700733495 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE867A332BBA82D700733495 /* AppDelegate.swift */; };
 		DE867A362BBA82D700733495 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE867A352BBA82D700733495 /* SceneDelegate.swift */; };
@@ -22,7 +21,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9C42F3D72BBD7B8B007A34D0 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		9C42F3D92BBD7BAF007A34D0 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 		DE867A302BBA82D700733495 /* SAGWABUCKS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SAGWABUCKS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE867A332BBA82D700733495 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,7 +81,6 @@
 		DE867A472BBA82F400733495 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9C42F3D72BBD7B8B007A34D0 /* LoadingViewController.swift */,
 				9C42F3D92BBD7BAF007A34D0 /* PreviewViewController.swift */,
 				DE867A372BBA82D700733495 /* ViewController.swift */,
 				DE867A4A2BBAC8AE00733495 /* CollectionVC.swift */,
@@ -183,7 +180,6 @@
 				DE867A532BBB1CBE00733495 /* MenuCell.swift in Sources */,
 				DE867A4B2BBAC8AE00733495 /* CollectionVC.swift in Sources */,
 				DE867A512BBB1C8B00733495 /* DataManager.swift in Sources */,
-				9C42F3D82BBD7B8B007A34D0 /* LoadingViewController.swift in Sources */,
 				DE867A382BBA82D700733495 /* ViewController.swift in Sources */,
 				DE867A342BBA82D700733495 /* AppDelegate.swift in Sources */,
 				DE867A362BBA82D700733495 /* SceneDelegate.swift in Sources */,

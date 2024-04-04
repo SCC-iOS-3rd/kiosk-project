@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ldy-tM-9QM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9Ic-FO-HGT">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -9,41 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Loading View Controller-->
-        <scene sceneID="Mc5-1l-W5c">
-            <objects>
-                <viewController modalPresentationStyle="fullScreen" id="ldy-tM-9QM" customClass="LoadingViewController" customModule="SAGWABUCKS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Hrb-H8-hA5">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="page2" translatesAutoresizingMaskIntoConstraints="NO" id="xOG-oc-fp4">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo1" translatesAutoresizingMaskIntoConstraints="NO" id="JpP-A0-1Sc">
-                                <rect key="frame" x="71.666666666666686" y="299" width="250" height="170"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="170" id="9bJ-0p-TGz"/>
-                                    <constraint firstAttribute="width" constant="250" id="DfJ-9K-5iL"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="6ro-XU-yjt"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="JpP-A0-1Sc" firstAttribute="top" secondItem="6ro-XU-yjt" secondAttribute="top" constant="240" id="GCB-20-fTk"/>
-                            <constraint firstItem="JpP-A0-1Sc" firstAttribute="centerX" secondItem="Hrb-H8-hA5" secondAttribute="centerX" id="NiM-wn-d7C"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <segue destination="9Ic-FO-HGT" kind="presentation" identifier="toPreviewVC" modalPresentationStyle="fullScreen" id="nEE-g7-bea"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ykk-US-JUu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1370.2290076335878" y="3.5211267605633805"/>
-        </scene>
         <!--Preview View Controller-->
         <scene sceneID="FS7-56-kRW">
             <objects>
@@ -57,7 +22,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="7zm-rc-9ra">
-                                <rect key="frame" x="40" y="762" width="313" height="40"/>
+                                <rect key="frame" x="40" y="728" width="313" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rnz-47-F7f">
                                         <rect key="frame" x="0.0" y="0.0" width="141.66666666666666" height="40"/>
@@ -136,7 +101,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139.69465648854961" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="216" y="4"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -144,8 +109,6 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Page1" width="390" height="844"/>
-        <image name="logo1" width="251" height="229.5"/>
-        <image name="page2" width="195" height="422"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
