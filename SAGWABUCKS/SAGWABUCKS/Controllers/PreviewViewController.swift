@@ -8,7 +8,7 @@
 import UIKit
 
 class PreviewViewController: UIViewController {
-
+    
     
     @IBOutlet weak var forHereButton: UIButton!
     @IBOutlet weak var toGoButton: UIButton!
@@ -16,11 +16,11 @@ class PreviewViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         configureUI()
     }
     
-
+    
     func configureUI() {
         
         forHereButton.backgroundColor = .white
@@ -40,7 +40,9 @@ class PreviewViewController: UIViewController {
     
     
     @IBAction func toMainPage(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "toMainVC", sender: self)
+        if let mainVC = storyboard?.instantiateViewController(withIdentifier: "mainVC") as? ViewController {
+            mainVC.modalPresentationStyle = .fullScreen
+            self.present(mainVC, animated: true, completion: nil)
         }
-
+    }
 }

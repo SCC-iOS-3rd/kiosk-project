@@ -33,7 +33,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="매  장"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="31Q-r4-56B"/>
+                                            <action selector="toMainPage:" destination="53C-lY-I3B" eventType="touchUpInside" id="CNU-ld-2do"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfd-8s-f3z">
@@ -44,7 +44,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="포  장"/>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="8Qa-lj-tRp"/>
+                                            <action selector="toMainPage:" destination="53C-lY-I3B" eventType="touchUpInside" id="g9A-Ee-08r"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -70,13 +70,13 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SAGWABUCKS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainVC" id="BYZ-38-t0r" customClass="ViewController" customModule="SAGWABUCKS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eMX-mO-tPv">
-                                <rect key="frame" x="0.0" y="131" width="393" height="691"/>
+                                <rect key="frame" x="0.0" y="190" width="393" height="598"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2iN-Ps-T5c">
                                     <size key="itemSize" width="180" height="180"/>
@@ -135,7 +135,7 @@
                                 </cells>
                             </collectionView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hJG-x8-szT">
-                                <rect key="frame" x="15" y="70" width="363" height="32"/>
+                                <rect key="frame" x="15" y="129" width="363" height="32"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <segments>
                                     <segment title="New"/>
@@ -150,19 +150,16 @@
                                     <action selector="categorySelected:" destination="BYZ-38-t0r" eventType="valueChanged" id="tN0-cT-wid"/>
                                 </connections>
                             </segmentedControl>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo4" translatesAutoresizingMaskIntoConstraints="NO" id="ewn-Ds-PBV">
-                                <rect key="frame" x="30" y="-11" width="94" height="61"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m39-Xj-kgD">
+                                <rect key="frame" x="20" y="39" width="85" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="94" id="gkL-yk-yXF"/>
-                                    <constraint firstAttribute="height" constant="61" id="lwF-zl-JkH"/>
+                                    <constraint firstAttribute="width" constant="85" id="pLi-kQ-Iof"/>
+                                    <constraint firstAttribute="height" constant="70" id="sSf-q7-4l5"/>
                                 </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m39-Xj-kgD">
-                                <rect key="frame" x="40" y="-8" width="76" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.28627450980000002" green="0.56470588239999997" blue="0.43137254899999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="logo4">
+                                    <color key="titleColor" red="0.28627450980000002" green="0.56470588239999997" blue="0.43137254899999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="backButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NHA-M2-lkj"/>
                                 </connections>
@@ -171,21 +168,20 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ewn-Ds-PBV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="1lX-xg-ysS"/>
                             <constraint firstItem="eMX-mO-tPv" firstAttribute="top" secondItem="hJG-x8-szT" secondAttribute="bottom" constant="30" id="DCB-tk-ein"/>
                             <constraint firstItem="hJG-x8-szT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="70" id="EML-hX-YWr"/>
+                            <constraint firstItem="hJG-x8-szT" firstAttribute="top" secondItem="m39-Xj-kgD" secondAttribute="bottom" constant="20" id="O9q-Vv-n4z"/>
                             <constraint firstItem="eMX-mO-tPv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cmD-zm-P3Y"/>
                             <constraint firstItem="hJG-x8-szT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="dC1-Yi-Fwb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eMX-mO-tPv" secondAttribute="trailing" id="jWb-UK-Xfb"/>
-                            <constraint firstItem="hJG-x8-szT" firstAttribute="top" secondItem="ewn-Ds-PBV" secondAttribute="bottom" constant="20" id="rdb-9n-6BO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="eMX-mO-tPv" secondAttribute="bottom" constant="30" id="t37-1D-3Bv"/>
+                            <constraint firstItem="m39-Xj-kgD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="vnq-FI-tT2"/>
                             <constraint firstItem="hJG-x8-szT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zfr-tl-aH2"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="m39-Xj-kgD" id="zyb-CE-dPc"/>
                         <outlet property="categoryControl" destination="hJG-x8-szT" id="cUI-Qj-cev"/>
-                        <outlet property="logoImageView" destination="ewn-Ds-PBV" id="s8y-4K-exk"/>
                         <outlet property="menuCollection" destination="eMX-mO-tPv" id="AM2-As-PqP"/>
                     </connections>
                 </viewController>
@@ -195,9 +191,6 @@
             <point key="canvasLocation" x="139.69465648854961" y="3.5211267605633805"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="8Qa-lj-tRp"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="Mocha Frappuccino" width="53" height="87"/>
         <image name="Page1" width="390" height="844"/>

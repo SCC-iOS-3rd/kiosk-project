@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     // Collection & Table View에 사용될 데이터 초기화
     var menuDataManager = Menu.newMenu
     
-    @IBOutlet weak var logoImageView: UIImageView!
+    //@IBOutlet weak var logoImageView: UIImageView!
     
     @IBOutlet weak var categoryControl: UISegmentedControl!
     
@@ -32,18 +32,11 @@ class ViewController: UIViewController {
         
         
     }
-    
-    @IBAction func backButtonTapped(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
-    
+
 
     // category code 구현
     func setConfigureCon() {
         self.categoryControl.selectedSegmentIndex = 0       // 화면 들어갔을 때 첫번째 세그먼트로 기본 세팅
-        
-        // logo image
-        logoImageView.image = UIImage(named: "SAGWABUCKS logo")
         
         categoryControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.gray], for: .normal)  // 선택되지 않은 카테고리 회색
         categoryControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black,               // 선택한 카테고리 블랙, 두껍게
@@ -51,6 +44,12 @@ class ViewController: UIViewController {
         
         categoryControl.addUnderlineForSelectedSegment()    // 카테고리바 언더라인 그리기
     }
+    
+    
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     // 셀 선택 시 해당 collectionView로 변환
     @IBAction func categorySelected(_ sender: UISegmentedControl) {
