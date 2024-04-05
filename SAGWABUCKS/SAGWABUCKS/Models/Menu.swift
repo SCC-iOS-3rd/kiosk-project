@@ -19,11 +19,11 @@ struct Menu {
         Menu(menuImage: UIImage(named: "Mocha Frappuccino"), menuName: "Mocha Frappuccino", menuPrice: 4000, menuCount: 0),
         Menu(menuImage: UIImage(named: "Custard_cream_latte-removebg-preview"), menuName: "Custard cream latte", menuPrice: 4000, menuCount: 0),
         Menu(menuImage: UIImage(named: "Light_pink_purple_mongpigio-removebg-preview"), menuName: "Light pink purple mongpigio", menuPrice: 4000, menuCount: 0),
-        Menu(menuImage: UIImage(named: "pistachio_pink_roll-removebg-preview"), menuName: "pistachio pink roll", menuPrice: 4000, menuCount: 0),
-        Menu(menuImage: UIImage(named: "pistachio_cream_cold_brew-removebg-preview"), menuName: "Custard cream latte", menuPrice: 4000, menuCount: 0),
-        Menu(menuImage: UIImage(named: "chicken_mushroom_sandwich-removebg-preview"), menuName: "pistachio pink roll", menuPrice: 4000, menuCount: 0),
-        Menu(menuImage: UIImage(named: "tribute_blend-removebg-preview"), menuName: "Custard cream latte", menuPrice: 4000, menuCount: 0),
-        Menu(menuImage: UIImage(named: "via_spring_season_blend-removebg-preview"), menuName: "pistachio pink roll", menuPrice: 4000, menuCount: 0)
+        Menu(menuImage: UIImage(named: "pistachio_pink_roll-removebg-preview"), menuName: "Pistachio pink roll", menuPrice: 4000, menuCount: 0),
+        Menu(menuImage: UIImage(named: "pistachio_cream_cold_brew-removebg-preview"), menuName: "Pistachio cream coldbrew", menuPrice: 4000, menuCount: 0),
+        Menu(menuImage: UIImage(named: "chicken_mushroom_sandwich-removebg-preview"), menuName: "Chicken mushroom sandwich", menuPrice: 4000, menuCount: 0),
+        Menu(menuImage: UIImage(named: "tribute_blend-removebg-preview"), menuName: "Tribute blend", menuPrice: 4000, menuCount: 0),
+        Menu(menuImage: UIImage(named: "via_spring_season_blend-removebg-preview"), menuName: "Via spring season blend", menuPrice: 4000, menuCount: 0)
     ]
 
     static let beverageMenu: [Menu] = [
