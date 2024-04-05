@@ -8,6 +8,12 @@
 import UIKit
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource, OrderTableViewCellDelegate {
+    func setTableView() {
+        orderListTable.delegate = self
+        orderListTable.dataSource = self
+
+    }
+    
     // Header
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "주문 내역"

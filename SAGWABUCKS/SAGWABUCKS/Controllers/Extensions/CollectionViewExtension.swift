@@ -37,6 +37,31 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         
         // Todo : tableView의 데이터 매니저에 메뉴의 정보를 받아 추가하는 매서드 활용 -> newMenu만 선택됌...
         let orderItem = OrderItem(product: DataManager.shared.newMenu[indexPath.row], menuCount: 1)
+//        if selectedMenu == "newMenu" {
+//              let orderItem = OrderItem(product: DataManager.shared.newMenu[indexPath.row], count: 1)
+//              DataManager.shared.orderLists.append(orderItem)
+//              updateOrderData()
+//              self.orderListTableview.reloadData()
+//            }
+//            else if selectedMenu == "beverageMenu" {
+//              let orderItem = OrderItem(product: DataManager.shared.beverageMenu[indexPath.row], count: 1)
+//              DataManager.shared.orderLists.append(orderItem)
+//              updateOrderData()
+//              self.orderListTableview.reloadData()
+//            }
+//            else if selectedMenu == "foodMenu" {
+//              let orderItem = OrderItem(product: DataManager.shared.foodMenu[indexPath.row], count: 1)
+//              DataManager.shared.orderLists.append(orderItem)
+//              updateOrderData()
+//              self.orderListTableview.reloadData()
+//            }
+//            else if selectedMenu == "mdMenu" {
+//              let orderItem = OrderItem(product: DataManager.shared.mdMenu[indexPath.row], count: 1)
+//              DataManager.shared.orderLists.append(orderItem)
+//              updateOrderData()
+//              self.orderListTableview.reloadData()
+//            }
+        
         DataManager.shared.orderLists.append(orderItem)
         updateOrderData()
         
