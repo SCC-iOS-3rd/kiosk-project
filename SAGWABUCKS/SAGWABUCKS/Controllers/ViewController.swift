@@ -40,17 +40,11 @@ class ViewController: UIViewController {
         // logo image
         logoImageView.image = UIImage(named: "SAGWABUCKS logo")
         
-        let segmentControl: UISegmentedControl = categoryControl
-        segmentControl.subviews.forEach { subview in
-          subview.backgroundColor = .white
-        }
-        categoryControl.setDividerImage(UIImage(), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
-        
         categoryControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.gray], for: .normal)  // 선택되지 않은 카테고리 회색
         categoryControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black,               // 선택한 카테고리 블랙, 두껍게
                                      .font: UIFont.systemFont(ofSize: 13, weight: .semibold)], for: .selected)
         
-        categoryControl.addUnderlineForSelectedSegment()      // 카테고리바 언더라인 그리기
+        categoryControl.addUnderlineForSelectedSegment()    // 카테고리바 언더라인 그리기
     }
     
     // 셀 선택 시 해당 collectionView로 변환
@@ -78,16 +72,27 @@ class ViewController: UIViewController {
             return
         }
     }
-    
 
 }
 
 
 extension UISegmentedControl{
+    func removeBorder(){
+        let backgroundImage = UIImage.getColoredRectImageWith(color: UIColor.white.cgColor, andSize: self.bounds.size)
+        self.setBackgroundImage(backgroundImage, for: .normal, barMetrics: .default)
+        self.setBackgroundImage(backgroundImage, for: .selected, barMetrics: .default)
+        self.setBackgroundImage(backgroundImage, for: .highlighted, barMetrics: .default)
+
+        let deviderImage = UIImage.getColoredRectImageWith(color: UIColor.white.cgColor, andSize: CGSize(width: 1.0, height: self.bounds.size.height))
+        self.setDividerImage(deviderImage, forLeftSegmentState: .selected, rightSegmentState: .normal, barMetrics: .default)
+        self.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.gray], for: .normal)
+        self.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .selected)
+    }
 
     func addUnderlineForSelectedSegment(){
+        removeBorder()
         let underlineWidth: CGFloat = self.bounds.size.width / CGFloat(self.numberOfSegments)
-        let underlineHeight: CGFloat = 3.0
+        let underlineHeight: CGFloat = 2.0
         let underlineXPosition = CGFloat(selectedSegmentIndex * Int(underlineWidth))
         let underLineYPosition = self.bounds.size.height - 1.0
         let underlineFrame = CGRect(x: underlineXPosition, y: underLineYPosition, width: underlineWidth, height: underlineHeight)
@@ -103,6 +108,20 @@ extension UISegmentedControl{
         UIView.animate(withDuration: 0.1, animations: {
             underline.frame.origin.x = underlineFinalXPosition
         })
+    }
+}
+
+extension UIImage{
+
+    class func getColoredRectImageWith(color: CGColor, andSize size: CGSize) -> UIImage{
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+        let graphicsContext = UIGraphicsGetCurrentContext()
+        graphicsContext?.setFillColor(color)
+        let rectangle = CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height)
+        graphicsContext?.fill(rectangle)
+        let rectangleImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return rectangleImage!
     }
 }
 
