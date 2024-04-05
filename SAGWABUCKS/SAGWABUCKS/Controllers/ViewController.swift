@@ -40,7 +40,10 @@ class ViewController: UIViewController {
         // logo image
         logoImageView.image = UIImage(named: "SAGWABUCKS logo")
         
-        categoryControl.backgroundColor = .clear
+        let segmentControl: UISegmentedControl = categoryControl
+        segmentControl.subviews.forEach { subview in
+          subview.backgroundColor = .white
+        }
         categoryControl.setDividerImage(UIImage(), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
         
         categoryControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.gray], for: .normal)  // 선택되지 않은 카테고리 회색
