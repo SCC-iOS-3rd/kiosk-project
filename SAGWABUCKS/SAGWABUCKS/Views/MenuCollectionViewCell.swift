@@ -23,7 +23,8 @@ class MenuCollectionViewCell: UICollectionViewCell {
             
             menuImageView.image = UIImage(named: menuLists.menuName)
             menuNameLabel.text = menuLists.menuName
-            menuPriceLabel.text = String(menuLists.menuPrice) + "원"
+            menuPriceLabel.text = String((menuLists.menuPrice).formatted(.currency(code: "KRW"))) + "원"
+
         }
         else if selectedMenu == "beverageMenu" {
             let menuLists = DataManager.shared.beverageMenu[indexPath.row]
@@ -58,7 +59,7 @@ class MenuCollectionViewCell: UICollectionViewCell {
         menuNameLabel.text = menuData.menuName
         
         // Todo 숫자사이에 ,넣기
-        menuPriceLabel.text = String(menuData.menuPrice) + "KRW"
+        menuPriceLabel.text = String((menuData.menuPrice).formatted(.currency(code: "KRW")))
         
     }
     

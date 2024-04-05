@@ -10,9 +10,7 @@ import UIKit
 class ViewController: UIViewController {
 
     // Collection & Table View에 사용될 데이터 초기화
-    var menuDataManager = DataManager().newMenu
-    
-    @IBOutlet weak var logoImageView: UIImageView!
+    var menuDataManager = DataManager.shared.newMenu
     
     @IBOutlet weak var categoryControl: UISegmentedControl!
     
@@ -25,10 +23,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalPriceLabel: UILabel!
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // logo image
-        logoImageView.image = UIImage(named: "SAGWABUCKS logo")
+        
         
         // SegmenetedControl
         setConfigureCon()
@@ -36,8 +35,8 @@ class ViewController: UIViewController {
         // CollectionView
         setColletion()
         
-        
-        
+        // TableView
+        setTableView()
         
         
         
@@ -46,6 +45,12 @@ class ViewController: UIViewController {
         
     }
 
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
     // category code 구현
     func setConfigureCon() {
         self.categoryControl.selectedSegmentIndex = 0       // 화면 들어갔을 때 첫번째 세그먼트로 기본 세팅
@@ -67,26 +72,26 @@ class ViewController: UIViewController {
         switch sender.selectedSegmentIndex {
         case 0:
             // 신메뉴 배열 불러와 컬렉션 뷰에 그리기
-            menuDataManager = DataManager().newMenu
+            menuDataManager = DataManager.shared.newMenu
             menuCollection.reloadData()
             return
         case 1:
             // 음료 배열 불러와 컬렉션 뷰에 그리기
-            menuDataManager = DataManager.beverageMenu
+            menuDataManager = DataManager.shared.beverageMenu
             menuCollection.reloadData()
             return
         case 2:
             // 음식 배열 불러와 컬렉션 뷰에 그리기
-            menuDataManager = DataManager.foodMenu
+            menuDataManager = DataManager.shared.foodMenu
             menuCollection.reloadData()
             return
         case 3:
             // 상품 배열 불러와 컬렉션 뷰에 그리기
-            menuDataManager = DataManager.mdMenu
+            menuDataManager = DataManager.shared.mdMenu
             menuCollection.reloadData()
             return
         default:
-            menuDataManager = DataManager().newMenu
+            menuDataManager = DataManager.shared.newMenu
             menuCollection.reloadData()
             return
         }
@@ -112,7 +117,7 @@ class ViewController: UIViewController {
         })) + " 개"
         //총금액
         totalPriceLabel.text = String(DataManager.shared.orderLists.reduce(0, { totalPrice, orderItem in
-            return totalPrice + (orderItem.menuCount * orderItem.menuPrice)
+            return totalPrice + (orderItem.menuCount * orderItem.product.menuPrice)
         }).formatted(.currency(code: "KRW"))) + " 원"
     }
     

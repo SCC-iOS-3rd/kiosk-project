@@ -28,11 +28,11 @@ class OrderTableViewCell: UITableViewCell {
     
     // 상품 '-'
     @IBAction func minusButton(_ sender: UIButton) {
-        if DataManager.shared.orderLists[indexPath.row].count == 1 {
+        if DataManager.shared.orderLists[indexPath.row].menuCount == 1 {
             print("한 개 이상 선택하세요")
         }
         else {
-            DataManager.shared.orderLists[indexPath.row].count -= 1
+            DataManager.shared.orderLists[indexPath.row].menuCount -= 1
             updateData()
             delegate?.selectMenuTableViewCell(countChanged: indexPath)
         }
@@ -40,7 +40,7 @@ class OrderTableViewCell: UITableViewCell {
     
     // 상품 '+'
     @IBAction func plusButton(_ sender: UIButton) {
-        DataManager.shared.orderLists[indexPath.row].count += 1
+        DataManager.shared.orderLists[indexPath.row].menuCount += 1
         updateData()
         delegate?.selectMenuTableViewCell(countChanged: indexPath)
     }
@@ -54,10 +54,10 @@ class OrderTableViewCell: UITableViewCell {
     func updateData() {
         let orderItem = DataManager.shared.orderLists[indexPath.row]
         
-        orderImage.image = UIImage(named: orderItem.menuName)
-        orderTitleLabel.text = orderItem.menuName
+        orderImage.image = UIImage(named: orderItem.product.menuName)
+        orderTitleLabel.text = orderItem.product.menuName
         orderCountLabel.text = String(orderItem.menuCount)
-        TotalPriceLabel.text = String((orderItem.menuPrice * orderItem.menuCount).formatted(.currency(code: "KRW")))
+        TotalPriceLabel.text = String((orderItem.product.menuPrice * orderItem.menuCount).formatted(.currency(code: "KRW")))
     }
     
     override func awakeFromNib() {
@@ -71,7 +71,7 @@ class OrderTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    //이미지 원형
+    // 이미지 원형
     override func layoutIfNeeded() {
         super.layoutIfNeeded()
         
