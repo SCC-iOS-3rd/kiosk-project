@@ -150,13 +150,23 @@
                                     <action selector="categorySelected:" destination="BYZ-38-t0r" eventType="valueChanged" id="tN0-cT-wid"/>
                                 </connections>
                             </segmentedControl>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ewn-Ds-PBV">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo4" translatesAutoresizingMaskIntoConstraints="NO" id="ewn-Ds-PBV">
                                 <rect key="frame" x="30" y="-11" width="94" height="61"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="94" id="gkL-yk-yXF"/>
                                     <constraint firstAttribute="height" constant="61" id="lwF-zl-JkH"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m39-Xj-kgD">
+                                <rect key="frame" x="40" y="-8" width="76" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.28627450980000002" green="0.56470588239999997" blue="0.43137254899999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NHA-M2-lkj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -173,6 +183,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="m39-Xj-kgD" id="zyb-CE-dPc"/>
                         <outlet property="categoryControl" destination="hJG-x8-szT" id="cUI-Qj-cev"/>
                         <outlet property="logoImageView" destination="ewn-Ds-PBV" id="s8y-4K-exk"/>
                         <outlet property="menuCollection" destination="eMX-mO-tPv" id="AM2-As-PqP"/>
@@ -190,6 +201,7 @@
     <resources>
         <image name="Mocha Frappuccino" width="53" height="87"/>
         <image name="Page1" width="390" height="844"/>
+        <image name="logo4" width="283" height="237"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

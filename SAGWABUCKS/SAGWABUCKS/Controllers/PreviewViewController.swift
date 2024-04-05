@@ -40,7 +40,7 @@ class PreviewViewController: UIViewController {
     
     
     @IBAction func toMainPage(_ sender: UIButton) {
-        print(#function)
+        self.performSegue(withIdentifier: "toMainVC", sender: self)
         }
 
 }

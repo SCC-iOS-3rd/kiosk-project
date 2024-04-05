@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var menuCollection: UICollectionView!
     
-    
+    @IBOutlet weak var backButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -32,6 +32,11 @@ class ViewController: UIViewController {
         
         
     }
+    
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 
     // category code 구현
     func setConfigureCon() {
