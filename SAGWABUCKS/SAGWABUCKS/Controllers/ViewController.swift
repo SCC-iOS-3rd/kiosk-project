@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
 
     // Collection & Table View에 사용될 데이터 초기화
-    var menuDataManager = Menu.newMenu
+    var menuDataManager = DataManager().newMenu
     
     @IBOutlet weak var logoImageView: UIImageView!
     
@@ -18,11 +18,17 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var menuCollection: UICollectionView!
     
+    @IBOutlet weak var orderListTable: UITableView!
     
+    @IBOutlet weak var totalCountLabel: UILabel!
+    
+    @IBOutlet weak var totalPriceLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // logo image
+        logoImageView.image = UIImage(named: "SAGWABUCKS logo")
         
         // SegmenetedControl
         setConfigureCon()
@@ -31,14 +37,18 @@ class ViewController: UIViewController {
         setColletion()
         
         
+        
+        
+        
+        
+        
+        
+        
     }
 
     // category code 구현
     func setConfigureCon() {
         self.categoryControl.selectedSegmentIndex = 0       // 화면 들어갔을 때 첫번째 세그먼트로 기본 세팅
-        
-        // logo image
-        logoImageView.image = UIImage(named: "SAGWABUCKS logo")
         
         // categoryControl.backgroundColor = .white // backgroundColor로 대체
         categoryControl.setDividerImage(UIImage(), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
@@ -57,105 +67,106 @@ class ViewController: UIViewController {
         switch sender.selectedSegmentIndex {
         case 0:
             // 신메뉴 배열 불러와 컬렉션 뷰에 그리기
+            menuDataManager = DataManager().newMenu
+            menuCollection.reloadData()
             return
         case 1:
             // 음료 배열 불러와 컬렉션 뷰에 그리기
+            menuDataManager = DataManager.beverageMenu
+            menuCollection.reloadData()
             return
         case 2:
             // 음식 배열 불러와 컬렉션 뷰에 그리기
+            menuDataManager = DataManager.foodMenu
+            menuCollection.reloadData()
             return
         case 3:
             // 상품 배열 불러와 컬렉션 뷰에 그리기
+            menuDataManager = DataManager.mdMenu
+            menuCollection.reloadData()
             return
         default:
+            menuDataManager = DataManager().newMenu
+            menuCollection.reloadData()
             return
         }
     }
     
 
-}
-
-
-extension UISegmentedControl{
-
-    func addUnderlineForSelectedSegment(){
-        let underlineWidth: CGFloat = self.bounds.size.width / CGFloat(self.numberOfSegments)
-        let underlineHeight: CGFloat = 3.0
-        let underlineXPosition = CGFloat(selectedSegmentIndex * Int(underlineWidth))
-        let underLineYPosition = self.bounds.size.height - 1.0
-        let underlineFrame = CGRect(x: underlineXPosition, y: underLineYPosition, width: underlineWidth, height: underlineHeight)
-        let underline = UIView(frame: underlineFrame)
-        underline.backgroundColor = UIColor.green
-        underline.tag = 1
-        self.addSubview(underline)
-    }
-
-    func changeUnderlinePosition(){
-        guard let underline = self.viewWithTag(1) else {return}
-        let underlineFinalXPosition = (self.bounds.width / CGFloat(self.numberOfSegments)) * CGFloat(selectedSegmentIndex)
-        UIView.animate(withDuration: 0.1, animations: {
-            underline.frame.origin.x = underlineFinalXPosition
-        })
-    }
-}
-
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    func setColletion() {
-        menuCollection.delegate = self
-        menuCollection.dataSource = self
-        menuCollection.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return menuDataManager.count
-    }
     
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MenuCell", for: indexPath) as? MenuCollectionViewCell else { return UICollectionViewCell() }
-        
-        cell.setCellConfig(menuDataManager[indexPath.row])
-        
-//        if indexPath.row % 2 == 0 {
-//            cell.contentView.backgroundColor = .red
-//        }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // 주문내역
+    func updateOrderData() {
+        //총수량
+        totalCountLabel.text = String(DataManager.shared.orderLists.reduce(0, { totalCount, orderItem in
+            return totalCount + orderItem.menuCount
+        })) + " 개"
+        //총금액
+        totalPriceLabel.text = String(DataManager.shared.orderLists.reduce(0, { totalPrice, orderItem in
+            return totalPrice + (orderItem.menuCount * orderItem.menuPrice)
+        }).formatted(.currency(code: "KRW"))) + " 원"
+    }
+    
+    // 주문내역 전체 취소(알림)
+    func cancelAll() {
+        let cancelAlert = UIAlertController(title: "전체 취소 하시겠습니까?", message: "선택한 메뉴가 전체 취소 됩니다.", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "돌아가기", style: .cancel, handler: nil)
+        let okAction = UIAlertAction(title: "전체취소", style: .default) { action in
+            DataManager.shared.orderLists.removeAll()
+            self.updateOrderData()
+            self.orderListTable.reloadData()
+        }
+        cancelAlert.addAction(cancelAction)
+        cancelAlert.addAction(okAction)
+        self.present(cancelAlert, animated: true)
+    }
+    
+    // 주문내역 결제 기능
+    func payAll() {
+        let payAllAlert = UIAlertController(title: "주문 하시겠습니까?", message: "\(totalPriceLabel.text!)이 결제 됩니다.", preferredStyle: .alert)
+        let payCancelAction = UIAlertAction(title: "돌아가기", style: .cancel, handler: nil)
+        let payAllAction = UIAlertAction(title: "주문하기", style: .default) { payAction in
+            // 주문 완료시 Alert
+            let payCompleteAlert = UIAlertController(title: "주문이 완료 되었습니다", message: "맛있게 만들어 드릴게요!", preferredStyle: .alert)
+            let payCompleteAction = UIAlertAction(title: "확인", style: .default)
             
-        return cell
-    }
-    
-    // collectionView 선택시 tableView(장바구니)에 추가
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            payCompleteAlert.addAction(payCompleteAction)
+            self.present(payCompleteAlert, animated: true)
+        }
+        // 결제 버튼 눌렀을시 메뉴가 없을 때 Alert
+        let noneMenuAlert = UIAlertController(title: "메뉴를 선택해 주세요", message: "", preferredStyle: .alert)
+        let backAction = UIAlertAction(title: "닫기", style: .cancel)
         
-        // Todo : tableView의 데이터 매니저에 메뉴의 정보를 받아 추가하는 매서드 활용
-
-        // 메뉴가 정상적으로 추가가 되었을 때 tableview cell을 다시 불러오기
-
+        if totalCountLabel.text == "0 개" {
+            noneMenuAlert.addAction(backAction)
+            self.present(noneMenuAlert, animated: true)
+        }
+        else {
+            payAllAlert.addAction(payCancelAction)
+            payAllAlert.addAction(payAllAction)
+            self.present(payAllAlert, animated: true)
+        }
     }
     
-    // 셀의 하이라이트 유무
-    func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
+    // 주문내역 전체 취소
+    @IBAction func cancelAllButton(_ sender: UIButton) { cancelAll() }
+    
+    // 주문내역 결제
+    @IBAction func payAllButton(_ sender: UIButton) { payAll() }
+    
     
 }
 
-extension ViewController: UICollectionViewDelegateFlowLayout {
-    
-    //    static let flowlayout = UICollectionViewFlowLayout()
-    
-    
-    // 셀의 크기를 반환하는 메서드
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.frame.width / 2 - 15
-        let size = CGSize(width: width, height: width)
-        
-        return size
-    }
-    
-    
-    // 행 사이 간격 최소 간격을 반환하는 메서드
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-    }
-}
+
+
+
+

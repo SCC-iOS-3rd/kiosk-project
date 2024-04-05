@@ -15,6 +15,39 @@ class MenuCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var menuPriceLabel: UILabel!
     
+    var indexPath: IndexPath = IndexPath()
+    
+    func menuItem(selectedMenu: String) {
+        if selectedMenu == "newMenu" {
+            let menuLists = DataManager.shared.newMenu[indexPath.row]
+            
+            menuImageView.image = UIImage(named: menuLists.menuName)
+            menuNameLabel.text = menuLists.menuName
+            menuPriceLabel.text = String(menuLists.menuPrice) + "원"
+        }
+        else if selectedMenu == "beverageMenu" {
+            let menuLists = DataManager.shared.beverageMenu[indexPath.row]
+            
+            menuImageView.image = UIImage(named: menuLists.menuName)
+            menuNameLabel.text = menuLists.menuName
+            menuPriceLabel.text = String(menuLists.menuPrice) + "원"
+        }
+        else if selectedMenu == "foodMenu" {
+            let menuLists = DataManager.shared.foodMenu[indexPath.row]
+            
+            menuImageView.image = UIImage(named: menuLists.menuName)
+            menuNameLabel.text = menuLists.menuName
+            menuPriceLabel.text = String(menuLists.menuPrice) + "원"
+        }
+        else if selectedMenu == "mdMenu" {
+            let menuLists = DataManager.shared.mdMenu[indexPath.row]
+            
+            menuImageView.image = UIImage(named: menuLists.menuName)
+            menuNameLabel.text = menuLists.menuName
+            menuPriceLabel.text = String(menuLists.menuPrice) + "원"
+        }
+    }
+    
     // cell 표현
     func setCellConfig(_ menuData: Menu) {
         

@@ -35,9 +35,13 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     // collectionView 선택시 tableView(장바구니)에 추가
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        // Todo : tableView의 데이터 매니저에 메뉴의 정보를 받아 추가하는 매서드 활용
-
+        // Todo : tableView의 데이터 매니저에 메뉴의 정보를 받아 추가하는 매서드 활용 -> newMenu만 선택됌...
+        let orderItem = OrderItem(product: DataManager.shared.newMenu[indexPath.row], menuCount: 1)
+        DataManager.shared.orderLists.append(orderItem)
+        updateOrderData()
+        
         // 메뉴가 정상적으로 추가가 되었을 때 tableview cell을 다시 불러오기
+        self.orderListTable.reloadData()
 
     }
     
