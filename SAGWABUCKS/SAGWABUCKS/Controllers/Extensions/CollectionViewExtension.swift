@@ -35,34 +35,23 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     // collectionView 선택시 tableView(장바구니)에 추가
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        // Todo : tableView의 데이터 매니저에 메뉴의 정보를 받아 추가하는 매서드 활용 -> newMenu만 선택됌...
-        let orderItem = OrderItem(product: DataManager.shared.newMenu[indexPath.row], menuCount: 1)
-//        if selectedMenu == "newMenu" {
-//              let orderItem = OrderItem(product: DataManager.shared.newMenu[indexPath.row], count: 1)
-//              DataManager.shared.orderLists.append(orderItem)
-//              updateOrderData()
-//              self.orderListTableview.reloadData()
-//            }
-//            else if selectedMenu == "beverageMenu" {
-//              let orderItem = OrderItem(product: DataManager.shared.beverageMenu[indexPath.row], count: 1)
-//              DataManager.shared.orderLists.append(orderItem)
-//              updateOrderData()
-//              self.orderListTableview.reloadData()
-//            }
-//            else if selectedMenu == "foodMenu" {
-//              let orderItem = OrderItem(product: DataManager.shared.foodMenu[indexPath.row], count: 1)
-//              DataManager.shared.orderLists.append(orderItem)
-//              updateOrderData()
-//              self.orderListTableview.reloadData()
-//            }
-//            else if selectedMenu == "mdMenu" {
-//              let orderItem = OrderItem(product: DataManager.shared.mdMenu[indexPath.row], count: 1)
-//              DataManager.shared.orderLists.append(orderItem)
-//              updateOrderData()
-//              self.orderListTableview.reloadData()
-//            }
+        // Todo : tableView의 데이터 매니저에 메뉴의 정보를 받아 추가하는 매서드 활용
+        // 중복된 메뉴 선택시 menuCount만 +1 하는 로직이 필요해 보임
+        let orderItem = OrderItem(product: menuDataManager[indexPath.row], menuCount: 1)
         
-        DataManager.shared.orderLists.append(orderItem)
+        // orderLists에 이미 담겨있다면 menuCount만 +1하고, 없다면 새로 추가 flag값 함 찾아보기
+        var isexist = false // 이미 있다면 isexist를 true로 바꿔서 해보기
+        
+        for i in 0..<DataManager.shared.orderLists.count {
+            if DataManager.shared.orderLists[i].product.menuName == orderItem.product.menuName {
+                DataManager.shared.orderLists[i].menuCount += 1
+                isexist = true
+            }
+        }
+        
+        if isexist == false {
+            DataManager.shared.orderLists.append(orderItem)
+        }
         updateOrderData()
         
         // 메뉴가 정상적으로 추가가 되었을 때 tableview cell을 다시 불러오기
