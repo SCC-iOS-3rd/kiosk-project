@@ -21,13 +21,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalCountLabel: UILabel!
     
     @IBOutlet weak var totalPriceLabel: UILabel!
-    
-    
-    
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         // SegmenetedControl
         setConfigureCon()
@@ -38,18 +34,11 @@ class ViewController: UIViewController {
         // TableView
         setTableView()
         
-        
-        
-        
-        
-        
     }
 
     @IBAction func backButtonTapped(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
     
     // category code 구현
     func setConfigureCon() {
@@ -96,18 +85,6 @@ class ViewController: UIViewController {
             return
         }
     }
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     // 주문내역
     func updateOrderData() {
@@ -167,7 +144,6 @@ class ViewController: UIViewController {
     
     // 주문내역 결제
     @IBAction func payAllButton(_ sender: UIButton) { payAll() }
-    
     
 }
 

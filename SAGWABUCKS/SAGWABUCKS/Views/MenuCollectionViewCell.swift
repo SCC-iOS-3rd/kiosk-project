@@ -15,6 +15,9 @@ class MenuCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var menuPriceLabel: UILabel!
     
+    @IBOutlet weak var menuView: UIView!
+    
+    
     var indexPath: IndexPath = IndexPath()
     
     func menuItem(selectedMenu: String) {
@@ -65,8 +68,8 @@ class MenuCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.contentView.backgroundColor = #colorLiteral(red: 0.324555248, green: 0.6363828778, blue: 0.4866786003, alpha: 1)
-        self.contentView.layer.cornerRadius = 10
-        self.contentView.clipsToBounds = true
+        self.menuView.backgroundColor = #colorLiteral(red: 0.324555248, green: 0.6363828778, blue: 0.4866786003, alpha: 1)
+        self.menuView.layer.cornerRadius = 10
+        self.menuView.clipsToBounds = true
     }
 }

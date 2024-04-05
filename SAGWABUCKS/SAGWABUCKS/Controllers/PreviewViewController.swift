@@ -19,7 +19,6 @@ class PreviewViewController: UIViewController {
         configureUI()
     }
     
-    
     func configureUI() {
         
         forHereButton.backgroundColor = .white
@@ -36,7 +35,6 @@ class PreviewViewController: UIViewController {
         toGoButton.layer.borderWidth = 3
         toGoButton.layer.borderColor = UIColor(red: 0.29, green: 0.56, blue: 0.43, alpha: 1.00).cgColor
     }
-    
     
     @IBAction func toMainPage(_ sender: UIButton) {
         if let mainVC = storyboard?.instantiateViewController(withIdentifier: "mainVC") as? ViewController {
