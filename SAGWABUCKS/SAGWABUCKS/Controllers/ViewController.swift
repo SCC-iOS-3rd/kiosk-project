@@ -22,6 +22,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var totalPriceLabel: UILabel!
     
+    @IBOutlet weak var cancelButton: UIButton!
+    
+    @IBOutlet weak var payButton: UIButton!
     
     
     
@@ -38,10 +41,8 @@ class ViewController: UIViewController {
         // TableView
         setTableView()
         
-        
-        
-        
-        
+        // cancelButton, payButton
+        setCancelNPayButton()
         
     }
 
@@ -55,15 +56,13 @@ class ViewController: UIViewController {
     func setConfigureCon() {
         self.categoryControl.selectedSegmentIndex = 0       // 화면 들어갔을 때 첫번째 세그먼트로 기본 세팅
         
-        // categoryControl.backgroundColor = .white // backgroundColor로 대체
-        categoryControl.setDividerImage(UIImage(), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
-        
         categoryControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.gray], for: .normal)  // 선택되지 않은 카테고리 회색
         categoryControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black,               // 선택한 카테고리 블랙, 두껍게
                                      .font: UIFont.systemFont(ofSize: 13, weight: .semibold)], for: .selected)
         
         categoryControl.addUnderlineForSelectedSegment()      // 카테고리바 언더라인 그리기
     }
+    
     
     // 셀 선택 시 해당 collectionView로 변환
     @IBAction func categorySelected(_ sender: UISegmentedControl) {
@@ -105,9 +104,10 @@ class ViewController: UIViewController {
     
     
     
-    
-    
-    
+    func setCancelNPayButton() {
+        cancelButton.layer.cornerRadius = 5
+        payButton.layer.cornerRadius = 5
+    }
     
     // 주문내역
     func updateOrderData() {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Rr-Cp-o4t">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2Rr-Cp-o4t">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -326,9 +326,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cancelButton" destination="BvS-Rc-FrN" id="61d-ET-fGF"/>
                         <outlet property="categoryControl" destination="hJG-x8-szT" id="cUI-Qj-cev"/>
                         <outlet property="menuCollection" destination="eMX-mO-tPv" id="AM2-As-PqP"/>
                         <outlet property="orderListTable" destination="FiO-Lk-qF1" id="yQu-vK-6WW"/>
+                        <outlet property="payButton" destination="jRF-ze-m2o" id="r0a-xI-GYS"/>
                         <outlet property="totalCountLabel" destination="ye4-5D-3ws" id="ZLN-H6-aaN"/>
                         <outlet property="totalPriceLabel" destination="CMl-OB-DtN" id="7sU-Gg-DVQ"/>
                     </connections>
