@@ -31,7 +31,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         // SegmenetedControl
         setConfigureCon()
         
@@ -49,8 +48,6 @@ class ViewController: UIViewController {
     @IBAction func backButtonTapped(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
     
     // category code 구현
     func setConfigureCon() {
@@ -95,18 +92,11 @@ class ViewController: UIViewController {
             return
         }
     }
-    
 
-    
-    
-    
-    
-    
-    
-    
+    // 버튼 둥글게
     func setCancelNPayButton() {
-        cancelButton.layer.cornerRadius = 5
-        payButton.layer.cornerRadius = 5
+        cancelButton.layer.cornerRadius = 15
+        payButton.layer.cornerRadius = 15
     }
     
     // 주문내역
@@ -143,6 +133,9 @@ class ViewController: UIViewController {
             // 주문 완료시 Alert
             let payCompleteAlert = UIAlertController(title: "주문이 완료 되었습니다", message: "맛있게 만들어 드릴게요!", preferredStyle: .alert)
             let payCompleteAction = UIAlertAction(title: "확인", style: .default)
+            DataManager.shared.orderLists.removeAll()
+            self.updateOrderData()
+            self.orderListTable.reloadData()
             
             payCompleteAlert.addAction(payCompleteAction)
             self.present(payCompleteAlert, animated: true)
@@ -167,7 +160,6 @@ class ViewController: UIViewController {
     
     // 주문내역 결제
     @IBAction func payAllButton(_ sender: UIButton) { payAll() }
-    
     
 }
 

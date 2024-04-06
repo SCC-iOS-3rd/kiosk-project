@@ -10,17 +10,14 @@ import UIKit
 class DataManager {
     // singleton pattern
     static let shared = DataManager()
-    init(){}
     
     let newMenu: [Menu] = [
-        Menu(menuImage: UIImage(named: "Caramel Frappucino"), menuName: "Caramel Frappucino", menuPrice: 5900),
-        Menu(menuImage: UIImage(named: "Mocha Frappuccino"), menuName: "Mocha Frappuccino", menuPrice: 6000),
         Menu(menuImage: UIImage(named: "Custard_cream_latte-removebg-preview"), menuName: "Custard cream latte", menuPrice: 6300),
         Menu(menuImage: UIImage(named: "Light_pink_purple_mongpigio-removebg-preview"), menuName: "Light pink purple mongpigio", menuPrice: 6300),
         Menu(menuImage: UIImage(named: "pistachio_pink_roll-removebg-preview"), menuName: "pistachio pink roll", menuPrice: 5900),
-        Menu(menuImage: UIImage(named: "tribute_blend-removebg-preview"), menuName: "Tribute blend", menuPrice: 7000),
         Menu(menuImage: UIImage(named: "chicken_mushroom_sandwich-removebg-preview"), menuName: "Chicken mushroom sandwich", menuPrice: 6900),
         Menu(menuImage: UIImage(named: "pistachio_cream_cold_brew-removebg-preview"), menuName: "Pistachio cream coldbrew", menuPrice: 6300),
+        Menu(menuImage: UIImage(named: "tribute_blend-removebg-preview"), menuName: "Tribute blend", menuPrice: 7000),
         Menu(menuImage: UIImage(named: "via_spring_season_blend-removebg-preview"), menuName: "Via spring season blend", menuPrice: 13500)
     ]
 
@@ -31,7 +28,9 @@ class DataManager {
         Menu(menuImage: UIImage(named: "Iced_cafe_mocha-removebg-preview"), menuName: "Iced cafe mocha", menuPrice: 5500),
         Menu(menuImage: UIImage(named: "classic_milk_tea-removebg-preview"), menuName: "classic milk tea", menuPrice: 5900),
         Menu(menuImage: UIImage(named: "Iced_Dolce_Latte-removebg-preview"), menuName: "Iced Dolce Latte", menuPrice: 5900),
-        Menu(menuImage: UIImage(named: "Iced_grapefruit _honey _black_tea-removebg-preview"), menuName: "Iced grapefruit honey black tea", menuPrice: 5700)
+        Menu(menuImage: UIImage(named: "Iced_grapefruit _honey _black_tea-removebg-preview"), menuName: "Iced grapefruit honey black tea", menuPrice: 5700),
+        Menu(menuImage: UIImage(named: "Caramel Frappucino"), menuName: "Caramel Frappucino", menuPrice: 5900),
+        Menu(menuImage: UIImage(named: "Mocha Frappuccino"), menuName: "Mocha Frappuccino", menuPrice: 6000)
     ]
 
     let foodMenu: [Menu] = [
